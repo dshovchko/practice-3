@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Practice 3</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <script defer src="build/bundle.js"></script>
+
+    <style>
+        tr.table-row-even {
+            background-color: #EEE;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Практическая работа 3</h2>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#task2" role="tab">Table Filterer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#task3" role="tab">Task 3</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="task2" role="tabpanel">
+                <table class="table" id="table-task-2">
+                    <thead class="thead-default">
+                        <tr>
+                            <th>#</th>
+                            <th>Album</th>
+                            <th>Performer</th>
+                            <th>Genre</th>
+                            <th>Year</th>
+                            <th>Link</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><input type="text" data-field="album" /></th>
+                            <th><input type="text" data-field="performer" /></th>
+                            <th><input type="text" data-field="genre" /></th>
+                            <th><input type="text" data-field="year" /></th>
+                            <th><button>Filter!</button></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="task3" role="tabpanel">Task 3 Description</div>
+        </div>
+    </div>
+</body>
+</html>
