@@ -16,6 +16,60 @@
         tr.table-row-even {
             background-color: #EEE;
         }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .item-list ul li,
+        .shopping-cart ul li {
+            padding: 1em 0;
+        }
+
+        .item-list ul li + li,
+        .shopping-cart ul li + li {
+            border-top: 1px solid lightgrey;
+        }
+
+        .item-list ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-list ul li .picture {
+            flex: 20% 0 0;
+            padding-right: 1em;
+        }
+
+        .item-list ul li .picture img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .item-list .price {
+            display: inline-block;
+            padding: 0 1em;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .shopping-cart {
+            padding-top: 1em;
+        }
+
+        .shopping-cart .item-info-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .shopping-cart-total {
+            margin-top: 2em;
+            padding-top: .5em;
+            border-top: 2px solid lightgrey;
+        }
     </style>
 </head>
 <body>
@@ -27,16 +81,16 @@
     <div class="container">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#task2" role="tab">Table Filterer</a>
+                <a class="nav-link active" data-toggle="tab" href="#task3" role="tab">Filterable Table</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#task3" role="tab">Task 3</a>
+                <a class="nav-link" data-toggle="tab" href="#task4" role="tab">Shopping Cart</a>
             </li>
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="task2" role="tabpanel">
-                <table class="table" id="table-task-2">
+            <div class="tab-pane active" id="task3" role="tabpanel">
+                <table class="table" id="table-task-3">
                     <thead class="thead-default">
                         <tr>
                             <th>#</th>
@@ -58,7 +112,22 @@
                     <tbody></tbody>
                 </table>
             </div>
-            <div class="tab-pane" id="task3" role="tabpanel">Task 3 Description</div>
+            <div class="tab-pane" id="task4" role="tabpanel">
+                <div class="row">
+                    <div class="col-8 item-list"></div>
+                    <div class="col-4 shopping-cart">
+                        <h2>Your Cart</h2>
+
+                        <p class="empty-cart-message">Your cart is empty. Buy something!</p>
+                        <ul class="shopping-cart-list"></ul>
+
+                        <div class="shopping-cart-total">
+                            Total: $<span class="total">0</span>
+                            <button class="btn btn-outline-danger btn-sm float-right remove-all d-none">Remove All!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
