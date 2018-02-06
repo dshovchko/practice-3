@@ -29,7 +29,7 @@ function checkZebra() {
 }
 
 
-describe("Task 2: TableFilterer", () => {
+describe("Task 3: TableFilterer", () => {
 
     beforeEach(() => {
         table = document.createElement("table");

@@ -4,7 +4,7 @@ import EnhancedSet from "../../src/task-2";
 const assert = chai.assert;
 
 
-describe("Task 3: Enhanced Set", () => {
+describe("Task 2: Enhanced Set", () => {
     const set = new EnhancedSet([1, 2, "3", 4, 5, {}]);
     const set2 = new EnhancedSet([4, 51, "3", 3]);
     const emptySet = new EnhancedSet();
