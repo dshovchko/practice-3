@@ -1,6 +1,6 @@
 
 function getRowHtml(fields, row, index) {
-    const cells = fields.map(field => `<td data-field="${field}">${row[field]}</td>`).join("");
+    const cells = fields.map(field => `<td data-field-name="${field}">${row[field]}</td>`).join("");
 
     return `
         <tr ${index % 2 ? "class=\"table-row-even\"" : ""}>

@@ -5,7 +5,7 @@ function renderCartItem(item) {
         <div class="item-info-wrapper">
             <div class="qty-wrapper">Qty: <span class="item-qty">1</span></div>
             <div class="price-wrapper"> Price: $<span class="item-price">${item.price}</span></div>
-            <button class="btn btn-sm btn-outline-danger" data-item-id="${item.id}">Remove</button>
+            <button class="btn btn-sm btn-outline-danger remove" data-item-id="${item.id}">Remove</button>
         </div>
     </li>
     `;
@@ -26,7 +26,17 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     addEventListeners() {
-        // Change me!
+        // remove all
+        this.removeAllEl.addEventListener("click", (e) => {
+            this.removeAll();
+        });
+
+        // remove item
+        this.cartEl.addEventListener("click", (e) => {
+            if (e.target.type === "submit" && e.target.textContent === "Remove") {
+                this.removeItem(e.target.dataset.itemId);
+            }
+        });
     }
 
     /**
@@ -60,7 +70,12 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     incrementItem(item) {
-        // Change me!
+
+        [...this.cartEl.children].filter((e) => e.dataset.itemId === item.id).map((e) => {
+            e.dataset.itemQty = Number(e.dataset.itemQty) + 1;
+            e.dataset.itemTotal = Number(e.dataset.itemQty) * Number(e.dataset.itemPrice);
+            e.querySelector("span.item-qty").innerHTML = e.dataset.itemQty;
+        });
     }
 
     /**
@@ -69,7 +84,7 @@ export default class ShoppingCart {
      * @returns {boolean} - true if item is present in shopping cart, false otherwise
      */
     isItemInCart(id) {
-        // Change me!
+        return [...this.cartEl.children].some(v => v.dataset.itemId === id);
     }
 
     /**
@@ -77,7 +92,7 @@ export default class ShoppingCart {
      * @returns {boolean} true if there's no items in cart, false otherwise
      */
     isCartEmpty() {
-        // Change me!
+        return !this.cartEl.children.length;
     }
 
     /**
@@ -85,7 +100,9 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     removeAll() {
-        // Change me!
+        this.cartEl.innerHTML = "";
+
+        this.updateCartState();
     }
 
     /**
@@ -94,7 +111,11 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     removeItem(id) {
-        // Change me!
+        [...this.cartEl.children].filter((e) => e.dataset.itemId === id).map((e) => {
+            e.remove();
+        });
+
+        this.updateCartState();
     }
 
     /**
@@ -112,7 +133,7 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     updateTotal() {
-        // Change me!
+        this.totalEl.innerHTML = this.getTotalSum();
     }
 
     /**
@@ -120,7 +141,7 @@ export default class ShoppingCart {
      * @returns {number} Total sum
      */
     getTotalSum() {
-        // Change me!
+        return [...this.cartEl.children].reduce((a, v) => (Number(v.dataset.itemTotal) + a), 0);
     }
 
     /**
@@ -129,9 +150,9 @@ export default class ShoppingCart {
      */
     updateNoItemsMessage() {
         if (this.isCartEmpty()) {
-            // Change me!
+            this.emptyCartEl.classList.remove("d-none");
         } else {
-            // Change me!
+            this.emptyCartEl.classList.add("d-none");
         }
     }
 
@@ -140,6 +161,10 @@ export default class ShoppingCart {
      * @returns {undefined}
      */
     updateRemoveAllButton() {
-        // Change me!
+        if (this.isCartEmpty()) {
+            this.removeAllEl.classList.add("d-none");
+        } else {
+            this.removeAllEl.classList.remove("d-none");
+        }
     }
 }
