@@ -1,5 +1,5 @@
-import phones from "./phones.json";
-import ShoppingCart from "./task-4.js";
+import phones from './phones.json';
+import ShoppingCart from './task-4.js';
 
 function getItemHtml(item) {
     return `
@@ -20,13 +20,13 @@ function getItemById(id) {
     return phones.find(item => item.id === id);
 }
 
-const phonesHtml = phones.map(getItemHtml).join(""),
-    itemList = document.querySelector(".item-list"),
-    cart = new ShoppingCart(document.getElementById("task4"));
+const phonesHtml = phones.map(getItemHtml).join(''),
+    itemList = document.querySelector('.item-list'),
+    cart = new ShoppingCart(document.getElementById('task4'));
 
 itemList.innerHTML = `<ul>${phonesHtml}</ul>`;
-itemList.addEventListener("click", e => {
-    if (e.target.tagName === "BUTTON") {
+itemList.addEventListener('click', e => {
+    if (e.target.tagName === 'BUTTON') {
         cart.addItem(getItemById(e.target.dataset.itemId));
     }
 });

@@ -1,9 +1,9 @@
 
 function getRowHtml(fields, row, index) {
-    const cells = fields.map(field => `<td data-field="${field}">${row[field]}</td>`).join("");
+    const cells = fields.map(field => `<td data-field="${field}">${row[field]}</td>`).join('');
 
     return `
-        <tr ${index % 2 ? "class=\"table-row-even\"" : ""}>
+        <tr ${index % 2 ? 'class="table-row-even"' : ''}>
             <td>${index + 1}</td>
             ${cells}
         </tr>`;
@@ -11,7 +11,7 @@ function getRowHtml(fields, row, index) {
 
 function getTableHtml(data, fields) {
     const rRow = getRowHtml.bind(null, fields);
-    return data.map(rRow).join("");
+    return data.map(rRow).join('');
 }
 
 export default function renderTable(el, data, fields) {
