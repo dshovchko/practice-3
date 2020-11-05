@@ -5,7 +5,7 @@ function renderCartItem(item) {
         <div class="item-info-wrapper">
             <div class="qty-wrapper">Qty: <span class="item-qty">1</span></div>
             <div class="price-wrapper"> Price: $<span class="item-price">${item.price}</span></div>
-            <button class="btn btn-sm btn-outline-danger" data-item-id="${item.id}">Remove</button>
+            <button class="btn btn-sm btn-outline-danger remove" data-item-id="${item.id}">Remove</button>
         </div>
     </li>
     `;
